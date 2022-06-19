@@ -6,9 +6,14 @@ import styles from "./RidesOption.module.css";
 import Link from 'next/link';
 import {count} from '../pages/index';
 
-
 export default function RidesOption({states,cities,path,user,rides}) {
     const [filters,setFilters] = useState(false);
+    const count1=()=>{
+        let arr = [];
+        arr = [...rides];
+          const val2 = arr.length
+          return val2
+      }
     useEffect(()=>{
         const allFilters = document.querySelectorAll(".filter");
         allFilters.forEach((filter) => {
@@ -30,33 +35,7 @@ export default function RidesOption({states,cities,path,user,rides}) {
         setFilters(!filters);
     }
     
-    const count1=()=>{
-        const array = [];
-        if(rides){
-        rides.map((ride) => {
-          states.push(ride.state);
-          cities.push(ride.city);
-          const closest = ride.station_path.reduce((a, b) => {
-            let differenceA = Math.abs(a - user.station_code);
-            let differenceB = Math.abs(b - user.station_code);
-            if (differenceA === differenceB) {
-              return a > b ? a : b;
-            } else {
-              return differenceB < differenceA ? b : a;
-            }
-          })
-          const distance = +(closest - user.station_code).toString().replace(/-/, "");
-          array.push({ ...ride, distance: distance });
-          return null;
-        })
-        array.sort((a, b) => a.distance - b.distance);
-        var val=array.length;
-        console.log(val);
-        return val;
-      };
-    }
-
-      
+    
     return (
     <div className={styles.ridesOption}>
         <div className={styles.TotalRides}>
@@ -67,7 +46,7 @@ export default function RidesOption({states,cities,path,user,rides}) {
             </Link>    
             <Link href='/upcomingRides'>
                 <a>
-                    <span className="filter" name="Upcoming ride">Upcoming rides </span>
+                    <span className="filter" name="Upcoming ride">Upcoming rides (0)</span>
                 </a>
             </Link>
             <Link href='/pastRides'>

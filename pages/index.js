@@ -54,6 +54,7 @@ export default function Home({rides,user}) {
       }
       else if(name==="city"){
         const filterCity = retrieveData().filter((ride)=>ride.city === data);
+        console.log(filterCity,':::::d');
         setSortArr(filterCity);
       }
     }
