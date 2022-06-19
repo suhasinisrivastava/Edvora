@@ -31,7 +31,7 @@ export default function Home({rides,user}) {
   }
 
   const [{state,city},dispatch] = useStateValue(retrieveData());
-  let val;
+  //let val;
 
   useEffect(()=>{
 
@@ -79,7 +79,7 @@ export default function Home({rides,user}) {
 
       <main className={styles.main}>
         <NavigationOption user={user}/>
-        <RidesOption states={states} cities={citiesState} path={router.pathname}/>
+        <RidesOption states={states} cities={citiesState} path={router.pathname} rides={rides} user={user}/>
         {sortArr && sortArr.map((ride,i)=> {
             var date = new Date(ride.date);
             var now = new Date(Date.now());

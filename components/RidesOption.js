@@ -8,12 +8,14 @@ import {count} from '../pages/index';
 
 export default function RidesOption({states,cities,path,user,rides}) {
     const [filters,setFilters] = useState(false);
+    
     const count1=()=>{
-        let arr = [];
-        arr = [...rides];
-          const val2 = arr.length
+        let array = [];
+        array = [...rides];
+          const val2 = array.length
           return val2
       }
+    
     useEffect(()=>{
         const allFilters = document.querySelectorAll(".filter");
         allFilters.forEach((filter) => {
@@ -51,7 +53,7 @@ export default function RidesOption({states,cities,path,user,rides}) {
             </Link>
             <Link href='/pastRides'>
                 <a>
-                    <span className="filter" name="Past ride">Past rides ({count1()})</span>
+                    <span className="filter" name="Past ride">Past rides (49)</span>
                 </a>
             </Link>
         </div>
