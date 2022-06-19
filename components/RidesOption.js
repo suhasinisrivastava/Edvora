@@ -53,7 +53,7 @@ export default function RidesOption({states,cities,path,user,rides}) {
             </Link>
             <Link href='/pastRides'>
                 <a>
-                    <span className="filter" name="Past ride">Past rides (49)</span>
+                    <span className="filter" name="Past ride">Past rides ({count1()})</span>
                 </a>
             </Link>
         </div>
